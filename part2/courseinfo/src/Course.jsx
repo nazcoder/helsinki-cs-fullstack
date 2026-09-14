@@ -20,15 +20,12 @@ const Content = ({ course }) => {
   );
 };
 function Course({ course }) {
-  let sum = 0;
-  course.parts.forEach((ex) => {
-    sum = sum + ex.exercises;
-  });
+  const total = course.parts.reduce((total, part) => total + part.exercises, 0);
   return (
     <div>
       <Header course={course} />
       <Content course={course} />
-      <p>total of {sum} exercises</p>
+      <p>total of {total} exercises</p>
     </div>
   );
 }
