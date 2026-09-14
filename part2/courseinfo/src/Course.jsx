@@ -20,10 +20,15 @@ const Content = ({ course }) => {
   );
 };
 function Course({ course }) {
+  let sum = 0;
+  course.parts.forEach((ex) => {
+    sum = sum + ex.exercises;
+  });
   return (
     <div>
       <Header course={course} />
       <Content course={course} />
+      <p>total of {sum} exercises</p>
     </div>
   );
 }
