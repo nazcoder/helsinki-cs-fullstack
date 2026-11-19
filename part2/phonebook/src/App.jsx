@@ -34,7 +34,7 @@ const App = () => {
     personServices
       .create(nameObject)
       .then((res) => {
-        setPersons(persons.concat(res));
+        setPersons(persons.concat(res.data));
         setNewName("");
         setNewNumber("");
         setFilter("");
@@ -44,7 +44,7 @@ const App = () => {
   };
 
   const filteredPersons = persons.filter((person) =>
-    person.name.toLowerCase().includes(filter.toLowerCase())
+    person?.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
