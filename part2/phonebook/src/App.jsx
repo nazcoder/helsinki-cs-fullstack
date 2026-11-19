@@ -3,6 +3,7 @@ import axios from "axios";
 import Filter from "./Filter";
 import PersonForm from "./PersonForm";
 import Persons from "./Persons";
+import personServices from "./services/persons";
 
 const App = () => {
   const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
@@ -30,14 +31,15 @@ const App = () => {
       name: newName,
       number: newNumber,
     };
-    axios
-      .post("http://localhost:3001/persons", nameObject)
-      .then((response) => {
-        setPersons(persons.concat(response.data));
+    personServices
+      .create(nameObject)
+      .then((res) => {
+        setPersons(persons.concat(res));
         setNewName("");
         setNewNumber("");
         setFilter("");
       })
+
       .catch((err) => console.log(err));
   };
 
