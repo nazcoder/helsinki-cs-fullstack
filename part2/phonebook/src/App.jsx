@@ -60,7 +60,10 @@ const App = () => {
         addName={addName}
       />
       <h2>Numbers</h2>
-      <Persons filteredPersons={filteredPersons} />
+      <Persons
+        filteredPersons={filteredPersons}
+        deletePerson={personServices.deletePerson}
+      />
     </div>
   );
 };
