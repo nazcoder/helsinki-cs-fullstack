@@ -21,10 +21,34 @@ const App = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const updatePerson = () => {
+    const nameObject = {
+      name: newName,
+      number: newNumber,
+    };
+    const isConfirmed = window.confirm(
+      `${newName} is already added to phonebook, replace the old number with a new one?`
+    );
+    if (isConfirmed) {
+      const id = persons.find((p) => p.name === newName)?.id;
+      console.log("id", id);
+      personServices
+        .update(nameObject, id)
+        .then((res) => {
+          setPersons(persons.filter((p) => p.id !== id).concat(res));
+          console.log(res);
+          setNewName("");
+          setNewNumber("");
+          setFilter("");
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   const addName = (event) => {
     event.preventDefault();
     if (persons.some((person) => person.name === newName)) {
-      alert(`${newName} is already added to phonebook`);
+      updatePerson();
       return;
     }
     const nameObject = {

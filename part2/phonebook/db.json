@@ -26,18 +26,8 @@
       "id": "VDQL5RvYJqk"
     },
     {
-      "name": "name",
-      "number": "33",
-      "id": "FyAXt0ELYCg"
-    },
-    {
-      "name": "nameee",
-      "number": "334",
-      "id": "MD6obXPc9-E"
-    },
-    {
       "name": "hi",
-      "number": "345",
+      "number": "2",
       "id": "uhGnw-qaPeo"
     },
     {
@@ -49,6 +39,11 @@
       "name": "uue",
       "number": "234",
       "id": "CWIdj4MhH9A"
+    },
+    {
+      "name": "name",
+      "number": "55",
+      "id": "fbA6lg-JQ4c"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
